@@ -82,15 +82,15 @@
     "next": "./dist/bin/next"
   },
   "scripts": {
-    "dev": "cross-env NEXT_SERVER_NO_MANGLE=1 taskr",
+    "dev": "node init && cross-env NEXT_SERVER_NO_MANGLE=1 taskr",
     "release": "taskr release",
-    "build": "pnpm release",
+    "build": "node init && pnpm release",
     "prepublishOnly": "cd ../../ && turbo run build",
     "types": "tsc --project tsconfig.build.json --declaration --emitDeclarationOnly --stripInternal --declarationDir dist",
     "typescript": "tsec --noEmit",
     "ncc-compiled": "taskr ncc",
     "storybook": "BROWSER=none storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "build-storybook": "node init && storybook build",
     "test-storybook": "test-storybook"
   },
   "taskr": {
